@@ -2867,6 +2867,242 @@
   }
 }
 
+/* ============================================================
+   HeroCentered — centred hero: heading + CTAs on top, hand video
+   floating in the middle, note (bottom-left) + trust card (bottom-right)
+   ============================================================ */
+.section.hero-c {
+  position: relative;
+  height: 100vh;
+  min-height: 680px;
+  background-color: #041337;
+  color: var(--white-shade--white);
+  overflow: hidden;
+  padding: clamp(132px, 15vh, 168px) 0 40px; /* extra breathing room below the navbar */
+  box-sizing: border-box;
+}
+.hero-c-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- top: heading + CTAs --- */
+.hero-c-top {
+  position: relative;
+  z-index: 3;
+  max-width: 1160px; /* wider line box so the heading settles to ~2 lines */
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-c-heading {
+  margin: 0;
+  font-family: var(--_font-family---body-font);
+  font-weight: 700;
+  color: var(--white-shade--white);
+  font-size: clamp(30px, 3.6vw, 52px); /* desktop caps at 52px; keeps the title to ~2 lines */
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+.hero-c-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: clamp(26px, 3vw, 38px);
+}
+.hero-c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-family: var(--_font-family---secondary-font);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.hero-c-btn:hover {
+  transform: translateY(-2px);
+}
+.hero-c-btn--primary {
+  background: #ffffff;
+  color: #061234;
+}
+.hero-c-btn--primary:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+.hero-c-btn--ghost {
+  background: transparent;
+  color: var(--white-shade--white);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.hero-c-btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- media: centred, floating on the stage --- */
+.hero-c-media {
+  position: absolute;
+  left: 50%;
+  bottom: -80px; /* desktop: let the media sit lower, past the stage edge */
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  pointer-events: none;
+  /* the source has a solid black frame — `screen` drops pure black to the navy
+     backdrop so the hand reads as transparent (no re-encode / baked effect).
+     It lives on the media wrapper (not the <video>) because the wrapper's own
+     z-index isolates a child blend; here the backdrop is the navy stage. */
+  mix-blend-mode: screen;
+}
+.hero-c-video {
+  height: min(76vh, 720px); /* desktop: a touch larger so the hand reads bigger */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  will-change: transform;
+}
+
+/* --- bottom: note (left) + trust card (right) --- */
+.hero-c-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  /* match the container gutter — absolute positioning bypasses the padding */
+  padding-left: var(--_spacing---container-padding--default);
+  padding-right: var(--_spacing---container-padding--default);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.hero-c-bottom > * {
+  pointer-events: auto;
+}
+.hero-c-note {
+  margin: 0;
+  max-width: 340px;
+  font-family: var(--_font-family---secondary-font);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+}
+.hero-c-card {
+  max-width: 440px;
+  padding: 16px 22px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hero-c-trust {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  font-family: var(--_font-family---secondary-font);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.hero-c-trust strong {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+.hero-c-trust-dot {
+  color: #cf9a3f;
+  font-size: 18px;
+  line-height: 0;
+}
+.hero-c-card-divider {
+  height: 1px;
+  margin: 14px 0;
+  background: rgba(255, 255, 255, 0.09);
+}
+.hero-c-audience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2vw, 30px);
+}
+.hero-c-audience-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--_font-family---secondary-font);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+}
+.hero-c-audience-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Tablet / mobile: unstack into normal flow */
+@media (max-width: 991px) {
+  .section.hero-c {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 140px;
+    padding-bottom: 56px;
+  }
+  .hero-c-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-c-top {
+    order: 1;
+  }
+  .hero-c-media {
+    position: static;
+    transform: none;
+    order: 2;
+    height: auto;
+    margin: 8px auto 0;
+  }
+  .hero-c-video {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 48vh;
+  }
+  .hero-c-bottom {
+    position: static;
+    order: 3;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    margin-top: 30px;
+  }
+  .hero-c-note {
+    max-width: none;
+  }
+  .hero-c-card {
+    max-width: none;
+  }
+}
+@media (max-width: 479px) {
+  .hero-c-btn {
+    flex: 1 1 100%;
+  }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track.left, .marquee-track.right { animation: none; }

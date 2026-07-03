@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import HeroVideoScroll from '../components/HeroVideoScroll.jsx'
 import HeroNew from '../components/HeroNew.jsx'
+import HeroCentered from '../components/HeroCentered.jsx'
 import AboutSection from '../components/AboutSection.jsx'
 import CompanyNumber from '../components/CompanyNumber.jsx'
 import ChallengeSection from '../components/ChallengeSection.jsx'
@@ -23,8 +24,12 @@ export default function Home() {
 
   return (
     <div ref={scope}>
-      {/* HERO — new 100vh navy hero (replaces the video-scroll hero) */}
-      <HeroNew />
+      {/* HERO — centred 100vh navy hero (heading + CTAs on top, hand video
+          floating, note + trust card anchored to the bottom corners) */}
+      <HeroCentered />
+
+      {/* PREVIOUS HERO (two-column) — hidden for now */}
+      {/* <HeroNew /> */}
 
       {/* OLD HERO — hidden for now */}
       {/* <HeroVideoScroll /> */}
