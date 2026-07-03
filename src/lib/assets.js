@@ -36,7 +36,6 @@ const A = {
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/692d0ad6c07766001b189ec2_Ellipse%203%20(4).svg": "/assets/Ellipse-3-4-.svg",
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/692d0b5142ccdc56e7ca6125_Ellipse%203%20(5).svg": "/assets/Ellipse-3-5-.svg",
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/692d5a43d41c079bf9c798fa_Hamburger.lottie": "/assets/Hamburger.lottie",
-  "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/692eb582f975f20329b2904f_17b56b01ad0538dcd3c54cd489a8a2ed_seo%20image.webp": "/assets/seo-image.webp",
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/6943e3223d944e33bdc4333e_Frame.svg": "/assets/Frame.svg",
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/6943e8777c7d8cdda53a3bdc_Rectangle%205.svg": "/assets/Rectangle-5.svg",
   "https://cdn.prod.website-files.com/6925368c84535d51ca6296ea/69463c322b61779ed353fc3c_Barreau_du_Quebec_logo%201.svg": "/assets/logo-1.svg",
