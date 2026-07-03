@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# logs
+*.log
+npm-debug.log*
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
+
+# env
+.env
+.env.*
+!.env.example
+
+# large unused source videos (kept locally; live site uses hero-new-transparent.webm)
+public/assets/videos/hero-new.mp4
+public/assets/videos/hero.original.mp4
+public/assets/videos/hero.mp4
+public/assets/videos/hero-2.mp4
